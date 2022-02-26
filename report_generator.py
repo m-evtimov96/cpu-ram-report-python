@@ -16,7 +16,9 @@ def generate_used_ram_percentage():
 def construct_report_for_10_seconds():
     cpu_report = []
     ram_report = []
-    end_time = datetime.now() + timedelta(seconds=11)
+    report_limit = 10
+    end_time = datetime.now() + timedelta(seconds=report_limit + 1)
+    print(f'Please wait {report_limit} seconds for the report to generate.')
     while datetime.now() < end_time:
         cpu_report.append((datetime.now(), generate_used_cpu_percentage()))
         ram_report.append((datetime.now(), generate_used_ram_percentage()))
